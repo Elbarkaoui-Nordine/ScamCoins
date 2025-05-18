@@ -137,9 +137,7 @@
                 });
 
                 Livewire.on('historicalDataUpdated', (data) => {
-                    console.log(data);
-                    const prices = data.prices;
-                    console.log(prices);
+                    const prices = data[0].prices;
                     const labels = prices.map(price => new Date(price[0]).toLocaleDateString());
                     const values = prices.map(price => price[1]);
 
