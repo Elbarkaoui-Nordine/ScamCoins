@@ -34,7 +34,7 @@
                 class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                 placeholder="Search cryptocurrencies..."  
             />
-            <div x-show="search && !loading && results.length === 0 && showResults" 
+            <div hidden x-show="search && !loading && results.length === 0 && showResults" 
                  @click.away="showResults = false"
                  class="py-2 mx-auto absolute bg-white rounded-lg shadow divide-gray-200 w-70 text-center text-gray-500">
                 No cryptocurrencies found
@@ -43,7 +43,7 @@
     </form>
 
     <!-- Results -->
-    <div x-show="showResults && results.length > 0" 
+    <div  x-show="showResults && results.length > 0" 
          @click.away="showResults = false"
          class="max-w-md mx-auto absolute w-full">
         <div class="bg-white shadow">
