@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 items-start">
                     <!-- Left Column: Info -->
                     <div class="space-y-6">
                         <!-- Market Data -->
@@ -46,7 +46,7 @@
                         <!-- Description -->
                         <div class="bg-slate-800 rounded-lg p-4">
                             <h2 class="text-xl font-semibold text-white mb-4">About {{ $crypto['name'] }}</h2>
-                            <div class="prose prose-invert max-w-none text-white">
+                            <div class="prose prose-invert max-w-none text-white max-h-[300px] overflow-y-auto">
                                 {!! $crypto['description']['en'] !!}
                             </div>
                         </div>
@@ -68,16 +68,18 @@
 
                     <!-- Right Column: Graph -->
                     <div class="bg-slate-800 rounded-lg p-4">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-xl font-semibold text-white">Price Chart</h2>
-                            <div class="flex space-x-2">
-                                <button wire:click="updateTimeRange('24h')" class="px-3 py-1 text-sm rounded {{ $timeRange === '24h' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">24H</button>
-                                <button wire:click="updateTimeRange('7d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '7d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">7D</button>
-                                <button wire:click="updateTimeRange('30d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '30d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">30D</button>
+                        <div class="flex flex-col ">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="text-xl font-semibold text-white">Price Chart</h2>
+                                <div class="flex space-x-2">
+                                    <button wire:click="updateTimeRange('24h')" class="px-3 py-1 text-sm rounded {{ $timeRange === '24h' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">24H</button>
+                                    <button wire:click="updateTimeRange('7d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '7d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">7D</button>
+                                    <button wire:click="updateTimeRange('30d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '30d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">30D</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="relative h-[400px]">
-                            <canvas id="priceChart"></canvas>
+                            <div class="relative h-[400px]">
+                                <canvas id="priceChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
