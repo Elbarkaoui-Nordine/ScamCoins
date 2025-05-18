@@ -72,7 +72,6 @@
                             <div class="flex justify-between items-center mb-4">
                                 <h2 class="text-xl font-semibold text-white">Price Chart</h2>
                                 <div class="flex space-x-2">
-                                    <button wire:click="updateTimeRange('24h')" class="px-3 py-1 text-sm rounded {{ $timeRange === '24h' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">24H</button>
                                     <button wire:click="updateTimeRange('7d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '7d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">7D</button>
                                     <button wire:click="updateTimeRange('30d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '30d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">30D</button>
                                 </div>

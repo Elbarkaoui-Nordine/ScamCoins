@@ -42,7 +42,6 @@ class CryptoShow extends Component
     {
         try {
             $days = match($this->timeRange) {
-                '24h' => '1',
                 '7d' => '7',
                 '30d' => '30',
                 default => '7'
