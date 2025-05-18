@@ -20,7 +20,7 @@
                             </thead>
                             <tbody wire:loading.remove class="divide-y divide-gray-700 bg-slate-900">
                                 @forelse($nfts as $index => $nft)
-                                    <tr class="hover:bg-slate-800">
+                                    <tr class="hover:bg-slate-800 cursor-pointer" @click="window.location.href = '{{ route('nft.show', $nft['id']) }}'">
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-200 sm:pl-6">
                                             {{ ($page - 1) * $perPage + (int)$index + 1 }}
                                         </td>

@@ -32,8 +32,7 @@ class CryptoSearch extends Component
             $this->results = $response->json('coins');
         } catch (\Exception $e) {
             $this->results = [];
-            // You might want to log the error here
-            dump($e);
+            $this->dispatch('showError', message: $e->getMessage());
         } 
         $this->loading = false;   
     }

@@ -25,3 +25,7 @@ Route::get('/nfts', function () {
     return view('pages.nfts');
 })->name('nfts');
 
+Route::get('/nft/{id}', function ($id) {
+    return view('pages.nfts.show', ['id' => $id]);
+})->name('nft.show');
+

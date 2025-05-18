@@ -66,4 +66,5 @@ interface CoingekoApiServiceInterface
 
     public function getNfts(array $params = []): Response;
     public function getCryptoById(string $id): Response;
+    public function getNftById(string $id): Response;   
 } 

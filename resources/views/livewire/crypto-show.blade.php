@@ -55,13 +55,17 @@
                         <div class="bg-slate-800 rounded-lg p-4">
                             <h2 class="text-xl font-semibold text-white mb-4">Links</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                @foreach($crypto['links']['homepage'] as $link)
-                                    @if($link)
-                                        <a href="{{ $link }}" target="_blank" class="text-blue-400 hover:text-blue-300">
-                                            {{ parse_url($link, PHP_URL_HOST) }}
-                                        </a>
-                                    @endif
-                                @endforeach
+                                @if(isset($crypto['links']['homepage']))
+                                    @foreach($crypto['links']['homepage'] as $link)
+                                        @if($link)
+                                            <a href="{{ $link }}" target="_blank" class="text-blue-400 hover:text-blue-300">
+                                                {{ parse_url($link, PHP_URL_HOST) }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <p class="text-gray-400">No links found</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -154,5 +158,9 @@
             });
         </script>
         
+    @else
+        <div class="text-center py-4 text-gray-400">
+            No data available
+        </div>
     @endif
 </div> 

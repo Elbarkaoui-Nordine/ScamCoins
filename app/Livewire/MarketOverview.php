@@ -26,7 +26,6 @@ class MarketOverview extends Component
     private function loadTrendingData()
     {
         try {
-            // Try to get data from cache first
             $cachedData = Cache::get(self::CACHE_KEY);
             
             if ($cachedData) {
@@ -36,7 +35,6 @@ class MarketOverview extends Component
                 return;
             }
 
-            // If not in cache, fetch from API
             $response = $this->coingekoApi->getTrending();
             $data = $response->json();
 
@@ -46,10 +44,8 @@ class MarketOverview extends Component
                 'categories' => array_slice($data['categories'], 0, 5)
             ];
 
-            // Store in cache
             Cache::put(self::CACHE_KEY, $trendingData, self::CACHE_TTL);
 
-            // Set the component properties
             $this->trendingCoins = $trendingData['coins'];
             $this->trendingNfts = $trendingData['nfts'];
             $this->trendingCategories = $trendingData['categories'];

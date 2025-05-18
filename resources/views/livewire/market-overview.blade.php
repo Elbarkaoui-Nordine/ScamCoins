@@ -32,7 +32,7 @@
             <h2 class="text-xl font-semibold text-white mb-4">Trending NFTs 🃏</h2>
             <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
                 @foreach($trendingNfts as $nft)
-                    <div class="hover:bg-gray-600 rounded-lg p-3 transition-colors">
+                    <a href="{{ route('nft.show', $nft['id']) }}" class="block hover:bg-gray-600 rounded-lg p-3 transition-colors">
                         <div class="flex items-center space-x-3">
                             <img src="{{ $nft['thumb'] }}" alt="{{ $nft['name'] }}" class="w-8 h-8 rounded-full">
                             <div class="flex-1">
@@ -47,7 +47,7 @@
                                 <p class="text-xs text-gray-400">Vol: {{ $nft['data']['h24_volume'] }}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

@@ -40,6 +40,12 @@ class CoingekoApiService implements CoingekoApiServiceInterface
         return $this->get('/coins/markets', $params);
     }
 
+    /**
+     * Get all nftss
+     *
+     * @param array $params Optional parameters
+     * @return Response
+     */
     public function getNfts(array $params = []): Response
     {
         $defaultParams = [
@@ -52,6 +58,12 @@ class CoingekoApiService implements CoingekoApiServiceInterface
         return $this->get('/nfts/list', $params);
     }
 
+    /**
+     * Get a crypto coin by ID
+     *
+     * @param string $id
+     * @return Response
+     */
     public function getCryptoById(string $id): Response
     {
         return $this->get("/coins/{$id}", [
@@ -62,6 +74,17 @@ class CoingekoApiService implements CoingekoApiServiceInterface
             'developer_data' => false,
             'sparkline' => false
         ]);
+    }
+
+    /**
+     * Get a nft by ID
+     *
+     * @param string $id
+     * @return Response
+     */
+    public function getNftById(string $id): Response
+    {
+        return $this->get("/nfts/{$id}");
     }
 
     /**
@@ -158,6 +181,11 @@ class CoingekoApiService implements CoingekoApiServiceInterface
         ]);
     }
 
+    /**
+     * Get trending coins
+     *
+     * @return Response
+     */
     public function getTrending(): Response
     {
         return $this->get('/search/trending');
