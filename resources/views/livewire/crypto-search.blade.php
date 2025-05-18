@@ -45,20 +45,20 @@
     <!-- Results -->
     <div  x-show="showResults && results.length > 0" 
          @click.away="showResults = false"
-         class="max-w-md mx-auto absolute w-full">
-        <div class="bg-white shadow">
-            <ul class="divide-y divide-gray-200 max-h-60 overflow-y-auto">
+         class="max-w-md mx-auto absolute border border-white">
+        <div class="bg-gray-700 shadow rounded-lg">
+            <ul class="divide-y divide-gray-200 max-h-60 overflow-y-auto ">
                 <template x-for="crypto in results" :key="crypto.id">
-                    <li class="px-2 hover:bg-gray-50">
+                    <li class="px-2 hover:bg-gray-900">
                         <a :href="'/crypto/'+crypto.id">
-                            <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-4 py-2">
                                 <img :src="crypto.thumb" class="w-8 h-8" :alt="crypto.name">
                                 <div>
-                                    <p class="text-sm font-medium text-gray-900" x-text="crypto.name"></p>
-                                    <p class="text-sm text-gray-500" x-text="crypto.symbol.toUpperCase()"></p>
+                                    <p class="text-sm font-medium text-white" x-text="crypto.name"></p>
+                                    <p class="text-sm text-white" x-text="crypto.symbol.toUpperCase()"></p>
                                 </div>
                                 <div class="ml-auto">
-                                    <p class="text-xs text-gray-500">Rank #<span x-text="crypto.market_cap_rank"></span></p>
+                                    <p class="text-xs text-white">Rank #<span x-text="crypto.market_cap_rank"></span></p>
                                 </div>
                             </div>
                         </a>        

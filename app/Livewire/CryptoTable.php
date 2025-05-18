@@ -50,7 +50,13 @@ class CryptoTable extends Component
                 $total,
                 $this->perPage,
                 $this->page,
-                ['path' => request()->url()]
+                [
+                    'path' => request()->root(), 
+                    'query' => [
+                        'order' => $this->order,
+                        'page' => $this->page
+                    ] 
+                ]
             );
         } catch (RequestException $e) { 
             $this->dispatch('showError', message: $e->getMessage());
@@ -58,31 +64,7 @@ class CryptoTable extends Component
         }
     }
 
-    private function calculateSparklinePoints($prices)
-    {
-        if (empty($prices)) {
-            return '';
-        }
 
-        $min = min($prices);
-        $max = max($prices);
-        $range = $max - $min ?: 1;
-
-        return collect($prices)->map(function($price, $index) use ($min, $range) {
-            $x = $index * (100 / 23);
-            $y = 30 - (($price - $min) / $range * 30);
-            return "{$x},{$y}";
-        })->join(' ');
-    }
-
-    public function getSparklinePoints($crypto)
-    {
-        if (!isset($crypto['sparkline_in_7d']['price']) || !is_array($crypto['sparkline_in_7d']['price'])) {
-            return '';
-        }
-
-        return $this->calculateSparklinePoints($crypto['sparkline_in_7d']['price']);
-    }
 
     public function render()
     {

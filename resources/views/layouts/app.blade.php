@@ -10,7 +10,7 @@
         @endif
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('storage/main-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('/main-icon.png') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
