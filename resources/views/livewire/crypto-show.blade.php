@@ -76,7 +76,7 @@
                                 <button wire:click="updateTimeRange('30d')" class="px-3 py-1 text-sm rounded {{ $timeRange === '30d' ? 'bg-blue-500 text-white' : 'bg-slate-700 text-gray-300' }}">30D</button>
                             </div>
                         </div>
-                        <div class="h-[400px]">
+                        <div class="relative h-[400px]">
                             <canvas id="priceChart"></canvas>
                         </div>
                     </div>
@@ -85,13 +85,23 @@
         </div>
 
         <script>
+            let chart;
+        
             document.addEventListener('livewire:initialized', function () {
+                initChart(@json($historicalData['prices'] ?? []));
+            });
+        
+            function initChart(prices) {
                 const ctx = document.getElementById('priceChart').getContext('2d');
-                const prices = @json($historicalData['prices'] ?? []);
                 const labels = prices.map(price => new Date(price[0]).toLocaleDateString());
                 const data = prices.map(price => price[1]);
-
-                const chart = new Chart(ctx, {
+        
+                // Destroy existing chart if it exists
+                if (chart) {
+                    chart.destroy();
+                }
+        
+                chart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: labels,
@@ -135,17 +145,13 @@
                         }
                     }
                 });
-
-                Livewire.on('historicalDataUpdated', (data) => {
-                    const prices = data[0].prices;
-                    const labels = prices.map(price => new Date(price[0]).toLocaleDateString());
-                    const values = prices.map(price => price[1]);
-
-                    chart.data.labels = labels;
-                    chart.data.datasets[0].data = values;
-                    chart.update();
-                });
+            }
+        
+            Livewire.on('historicalDataUpdated', (data) => {
+                const prices = data[0].prices;
+                initChart(prices); // destroy and reinit
             });
         </script>
+        
     @endif
 </div> 
