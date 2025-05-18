@@ -2,7 +2,6 @@
     @if (!empty($crypto))
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="bg-slate-900 rounded-lg shadow-lg overflow-hidden">
-                <!-- Header -->
                 <div class="px-6 py-4 border-b border-gray-700">
                     <div class="flex items-center space-x-4">
 
@@ -21,9 +20,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 items-start">
-                    <!-- Left Column: Info -->
                     <div class="space-y-6">
-                        <!-- Market Data -->
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-slate-800 rounded-lg p-4">
                                 <h3 class="text-sm font-medium text-gray-400">Market Cap</h3>
@@ -43,7 +40,6 @@
                             </div>
                         </div>
 
-                        <!-- Description -->
                         <div class="bg-slate-800 rounded-lg p-4">
                             <h2 class="text-xl font-semibold text-white mb-4">About {{ $crypto['name'] }}</h2>
                             <div class="prose prose-invert max-w-none text-white max-h-[300px] overflow-y-auto">
@@ -51,7 +47,6 @@
                             </div>
                         </div>
 
-                        <!-- Links -->
                         <div class="bg-slate-800 rounded-lg p-4">
                             <h2 class="text-xl font-semibold text-white mb-4">Links</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -70,7 +65,6 @@
                         </div>
                     </div>
 
-                    <!-- Right Column: Graph -->
                     <div class="bg-slate-800 rounded-lg p-4">
                         <div class="flex flex-col ">
                             <div class="flex justify-between items-center mb-4">

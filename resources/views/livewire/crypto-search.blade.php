@@ -42,7 +42,6 @@
         </div>
     </form>
 
-    <!-- Results -->
     <div  x-show="showResults && results.length > 0" 
          @click.away="showResults = false"
          class="max-w-md mx-auto absolute border border-white">

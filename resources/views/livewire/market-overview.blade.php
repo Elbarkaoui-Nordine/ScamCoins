@@ -6,7 +6,6 @@
     @endif
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Trending Coins -->
         <div class="bg-gray-700 rounded-lg shadow-lg p-6">
             <h2 class="text-xl font-semibold text-white mb-4">Trending Coins 🔥</h2>
             <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
@@ -27,7 +26,6 @@
             </div>
         </div>
 
-        <!-- Trending NFTs -->
         <div class="bg-gray-700 rounded-lg shadow-lg p-6">
             <h2 class="text-xl font-semibold text-white mb-4">Trending NFTs 🃏</h2>
             <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
@@ -52,7 +50,6 @@
             </div>
         </div>
 
-        <!-- Trending Categories -->
         <div class="bg-gray-700 rounded-lg shadow-lg p-6">
             <h2 class="text-xl font-semibold text-white mb-4">Trending Categories 📊</h2>
             <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
