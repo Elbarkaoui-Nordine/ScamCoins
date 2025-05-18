@@ -75,7 +75,7 @@ class CoingekoApiService implements CoingekoApiServiceInterface
     {
         try {
             return Http::withHeaders([
-                'Authorization' => 'Bearer ' . $this->apiKey,
+                'x-cg-demo-api-key' => $this->apiKey,
                 'Accept' => 'application/json',
             ])->get($this->baseUrl . $endpoint, $params);
         } catch (\Exception $e) {
@@ -95,7 +95,7 @@ class CoingekoApiService implements CoingekoApiServiceInterface
     {
         try {
             return Http::withHeaders([
-                'Authorization' => 'Bearer ' . $this->apiKey,
+                'x-cg-demo-api-key' => $this->apiKey,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ])->post($this->baseUrl . $endpoint, $data);
@@ -116,7 +116,7 @@ class CoingekoApiService implements CoingekoApiServiceInterface
     {
         try {
             return Http::withHeaders([
-                'Authorization' => 'Bearer ' . $this->apiKey,
+                'x-cg-demo-api-key' => $this->apiKey,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ])->put($this->baseUrl . $endpoint, $data);
@@ -136,7 +136,7 @@ class CoingekoApiService implements CoingekoApiServiceInterface
     {
         try {
             return Http::withHeaders([
-                'Authorization' => 'Bearer ' . $this->apiKey,
+                'x-cg-demo-api-key' => $this->apiKey,
                 'Accept' => 'application/json',
             ])->delete($this->baseUrl . $endpoint);
         } catch (\Exception $e) {
