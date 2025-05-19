@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Services\Interfaces\CoingekoApiServiceInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Url;
@@ -68,7 +67,7 @@ class CryptoTable extends Component
 
     public function render()
     {
-        return view('livewire.crypto-table', [
+        return view('livewire.cryptos.crypto-table', [
             'cryptos' => $this->getCryptos(),
         ]);
     }

@@ -68,6 +68,6 @@ class CryptoShow extends Component
 
     public function render()
     {
-        return view('livewire.crypto-show');
+        return view('livewire.cryptos.crypto-show');
     }
 } 

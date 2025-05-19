@@ -36,6 +36,6 @@ class NftShow extends Component
 
     public function render()
     {
-        return view('livewire.nft-show');
+        return view('livewire.nfts.nft-show');
     }
 } 

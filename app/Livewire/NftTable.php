@@ -50,7 +50,7 @@ class NftTable extends Component
 
     public function render()
     {
-        return view('livewire.nft-table', [
+        return view('livewire.nfts.nft-table', [
             'nfts' => $this->getNfts()
         ]);
     }
