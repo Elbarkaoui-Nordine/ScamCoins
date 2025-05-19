@@ -11,7 +11,6 @@ class MarketOverview extends Component
     public array $trendingCoins = [];
     public array $trendingNfts = [];
     public array $trendingCategories = [];
-    public ?string $errorMessage = null;
 
     protected CoingekoApiServiceInterface $coingekoApi;
     private const CACHE_TTL = 600; // 10 minutes in seconds
@@ -50,7 +49,7 @@ class MarketOverview extends Component
             $this->trendingNfts = $trendingData['nfts'];
             $this->trendingCategories = $trendingData['categories'];
         } catch (\Exception $e) {
-            $this->errorMessage = $e->getMessage();
+            $this->dispatch('showError', message: $e->getMessage());
         }
     }
 
